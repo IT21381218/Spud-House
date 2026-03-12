@@ -42,7 +42,7 @@ const HeroSection = () => {
             COLOMBO'S LOADED POTATO SPOT
           </h1>
 
-          <p className="text-sm md:text-base text-foreground/50 mb-10 max-w-md leading-relaxed">
+          <p className="text-sm md:text-base text-white mb-10 max-w-md leading-relaxed">
             Crispy fries. Loaded baked potatoes. Bold sauces. Every evening from 5 PM.
           </p>
 
