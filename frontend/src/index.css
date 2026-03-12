@@ -1,68 +1,133 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background: 20 10% 7%;
+    --foreground: 40 20% 92%;
+
+    --card: 20 8% 12%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 20 8% 12%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 42 100% 50%;
+    --primary-foreground: 20 10% 7%;
+
+    --secondary: 15 80% 50%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 20 8% 18%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 42 100% 50%;
+    --accent-foreground: 20 10% 7%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 20 8% 20%;
+    --input: 20 8% 20%;
+    --ring: 42 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 20 10% 7%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 42 100% 50%;
+    --sidebar-primary-foreground: 20 10% 7%;
+    --sidebar-accent: 20 8% 18%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 20 8% 20%;
+    --sidebar-ring: 42 100% 50%;
+
+    /* Custom tokens */
+    --spud-gold: 42 100% 50%;
+    --spud-orange: 25 95% 53%;
+    --spud-red: 0 72% 51%;
+    --spud-charcoal: 20 8% 12%;
+    --spud-dark: 20 10% 7%;
+    --glow-gold: 0 0 30px hsl(42 100% 50% / 0.4);
+    --glow-orange: 0 0 30px hsl(25 95% 53% / 0.3);
+
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
-  button {
-    background-color: #f9f9f9;
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glow-gold {
+    box-shadow: var(--glow-gold);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(42 100% 50% / 0.5);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(42 100% 50%), hsl(25 95% 53%));
+  }
+
+  .gradient-dark {
+    background: linear-gradient(180deg, hsl(20 10% 7%), hsl(20 8% 12%));
+  }
+
+  .food-card {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300;
+  }
+
+  .food-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px hsl(42 100% 50% / 0.15);
+  }
+
+  .section-padding {
+    @apply px-4 py-16 md:px-8 lg:px-16 lg:py-24;
+  }
+
+  .nav-link {
+    @apply relative text-foreground/70 hover:text-primary transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42 100% 50%), hsl(25 95% 53%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

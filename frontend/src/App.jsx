@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
+import Index from "./pages/Index.tsx";
+import MenuPage from "./pages/MenuPage.tsx";
+import AboutPage from "./pages/AboutPage.tsx";
+import ReviewsPage from "./pages/ReviewsPage.tsx";
+import VisitPage from "./pages/VisitPage.tsx";
+import GalleryPage from "./pages/GalleryPage.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const queryClient = new QueryClient();
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
+          <Route path="/visit" element={<VisitPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <FloatingButtons />
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
-export default App
+export default App;
