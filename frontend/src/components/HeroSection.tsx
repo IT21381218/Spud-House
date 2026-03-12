@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Star, ArrowRight, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-fries.jpg";
+import { ArrowRight, MapPin } from "lucide-react";
+import heroImg from "../assets/hero-fries.jpg";
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,15 +38,6 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-xl"
         >
-          <div className="flex items-center gap-2 mb-6">
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} className="text-primary fill-primary" />
-              ))}
-            </div>
-            <span className="text-xs text-muted-foreground tracking-wider">5.0 • 14 REVIEWS</span>
-          </div>
-
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gradient-gold leading-[0.95] tracking-wider mb-6">
             COLOMBO'S LOADED POTATO SPOT
           </h1>
