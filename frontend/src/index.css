@@ -61,11 +61,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: var(--font-body);
   }
 
@@ -97,7 +98,10 @@
   }
 
   .food-card {
-    @apply bg-card rounded-xl overflow-hidden transition-all duration-300;
+    background-color: hsl(var(--card));
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 300ms;
   }
 
   .food-card:hover {
@@ -106,20 +110,54 @@
   }
 
   .section-padding {
-    @apply px-4 py-16 md:px-8 lg:px-16 lg:py-24;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
   }
 
   .nav-link {
-    @apply relative text-foreground/70 hover:text-primary transition-colors duration-300;
+    color: hsl(var(--foreground) / 0.7);
+    position: relative;
+    transition: color 300ms;
+  }
+
+  .nav-link:hover {
+    color: hsl(var(--primary));
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.125rem;
+    background-color: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 300ms;
   }
 
   .nav-link:hover::after {
-    @apply scale-x-100 origin-left;
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }
 
