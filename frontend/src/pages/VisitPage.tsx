@@ -86,7 +86,7 @@ const VisitPage = () => {
           >
             <iframe
               title="Spud House Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9!2d79.86!3d6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVlZNNCtRNUo!5e0!3m2!1sen!2slk!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.8866451039758!2d79.85517377416583!3d6.884389185959227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b001ad7fa6f%3A0x98863a518c12837a!2sSpud%20House!5e0!3m2!1sen!2slk!4v1773508285635!5m2!1sen!2slk"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "400px" }}

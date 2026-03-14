@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
-import heroImg from "../assets/hero-fries.jpg";
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,7 +19,14 @@ const HeroSection = () => {
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax background */}
       <motion.div className="absolute inset-0" style={{ y: imageY, scale: imageScale }}>
-        <img src={heroImg} alt="Loaded fries" className="w-full h-full object-cover" />
+        <video
+          src="https://res.cloudinary.com/dwcxwpn7q/video/upload/v1773511600/Add_smooth_looping_animation_35a89639df_of3tvs.mp4"
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
       </motion.div>
       <motion.div
         className="absolute inset-0 bg-background"
